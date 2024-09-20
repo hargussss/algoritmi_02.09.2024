@@ -72,4 +72,17 @@ template <typename T1, typename T2>
 TPair<T1, T2>::TPair(TPair&& other) noexcept
     : _first(std::move(other._first)), _second(std::move(other._second)) { }
 
+// геттеры и сеттеры
+template <typename T1, typename T2>
+T1 TPair<T1, T2>::first() const noexcept { return _first; }
+
+template <typename T1, typename T2>
+T2 TPair<T1, T2>::second() const noexcept { return _second; }
+
+template <typename T1, typename T2>
+void TPair<T1, T2>::set_first(const T1& value) noexcept { _first = value; }
+
+template <typename T1, typename T2>
+void TPair<T1, T2>::set_second(const T2& value) noexcept { _second = value; }
+
 #endif  // LIB_PAIR_PAIR_H_
