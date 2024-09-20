@@ -85,4 +85,54 @@ void TPair<T1, T2>::set_first(const T1& value) noexcept { _first = value; }
 template <typename T1, typename T2>
 void TPair<T1, T2>::set_second(const T2& value) noexcept { _second = value; }
 
+// операторы
+template <typename T1, typename T2>
+TPair<T1, T2>& TPair<T1, T2>::operator=(const TPair& other) noexcept {
+    if (this != &other) {
+        _first = other._first;
+        _second = other._second;
+    }
+    return *this;
+}
+
+template <typename T1, typename T2>
+TPair<T1, T2>& TPair<T1, T2>::operator=(TPair&& other) noexcept {
+    if (this != &other) {
+        _first = std::move(other._first);
+        _second = std::move(other._second);
+    }
+    return *this;
+}
+
+template <typename T1, typename T2>
+bool TPair<T1, T2>::operator==(const TPair& other) const noexcept {
+    return (_first == other._first && _second == other._second);
+}
+
+template <typename T1, typename T2>
+bool TPair<T1, T2>::operator!=(const TPair& other) const noexcept {
+    return !(*this == other);
+}
+
+template <typename T1, typename T2>
+bool TPair<T1, T2>::operator<(const TPair& other) const noexcept {
+    return (_first < other._first) ||
+        (_first == other._first && _second < other._second);
+}
+
+template <typename T1, typename T2>
+bool TPair<T1, T2>::operator>(const TPair& other) const noexcept {
+    return other < *this;
+}
+
+template <typename T1, typename T2>
+bool TPair<T1, T2>::operator<=(const TPair& other) const noexcept {
+    return !(*this > other);
+}
+
+template <typename T1, typename T2>
+bool TPair<T1, T2>::operator>=(const TPair& other) const noexcept {
+    return !(*this < other);
+}
+
 #endif  // LIB_PAIR_PAIR_H_
