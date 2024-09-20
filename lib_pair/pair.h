@@ -135,4 +135,38 @@ bool TPair<T1, T2>::operator>=(const TPair& other) const noexcept {
     return !(*this < other);
 }
 
+// арифметические операции
+template <typename T1, typename T2>
+TPair<T1, T2> TPair<T1, T2>::operator+(const TPair& other) const noexcept {
+    static_assert(std::is_arithmetic<T1>::value &&
+                  std::is_arithmetic<T2>::value,
+                  "Both T1 and T2 must be arithmetic types for addition.");
+    return TPair(_first + other._first, _second + other._second);
+}
+
+template <typename T1, typename T2>
+TPair<T1, T2> TPair<T1, T2>::operator-(const TPair& other) const noexcept {
+    static_assert(std::is_arithmetic<T1>::value &&
+                  std::is_arithmetic<T2>::value,
+                  "Both T1 and T2 must be arithmetic types for subtraction.");
+    return TPair(_first - other._first, _second - other._second);
+}
+
+// методы для строкового представления и вывода в поток
+template <typename T1, typename T2>
+std::string TPair<T1, T2>::to_string() const noexcept {
+    std::stringstream ss;
+    ss << "(" << _first << ", " << _second << ")";
+    return ss.str();
+}
+
+template <typename T1, typename T2>
+std::ostream& operator<<(
+    std::ostream& os,
+    const TPair<T1, T2>& pair
+) {
+    os << pair.to_string();
+    return os;
+}
+
 #endif  // LIB_PAIR_PAIR_H_
