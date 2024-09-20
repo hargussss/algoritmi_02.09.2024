@@ -52,4 +52,24 @@ class TPair {
         const TPair<U1, U2>& pair);
 };
 
+// конструкторы и деструкторы
+template <typename T1, typename T2>
+TPair<T1, T2>::TPair() : _first(T1()), _second(T2()) { }
+
+template <typename T1, typename T2>
+TPair<T1, T2>::TPair(const T1& first, const T2& second)
+    : _first(first), _second(second) { }
+
+template <typename T1, typename T2>
+TPair<T1, T2>::TPair(T1&& first, T2&& second) noexcept
+    : _first(std::move(first)), _second(std::move(second)) { }
+
+template <typename T1, typename T2>
+TPair<T1, T2>::TPair(const TPair& other) : _first(other._first),
+    _second(other._second) { }
+
+template <typename T1, typename T2>
+TPair<T1, T2>::TPair(TPair&& other) noexcept
+    : _first(std::move(other._first)), _second(std::move(other._second)) { }
+
 #endif  // LIB_PAIR_PAIR_H_
