@@ -255,7 +255,8 @@ TEST(TestDMassiv, can_reserve_memory) {
     arr.reserve(10);
 
     // Assert
-    EXPECT_EQ(arr.capacity(), 15);  // Should increase capacity based on STEP_CAPACITY
+    EXPECT_EQ(arr.capacity(), 15);  // Should increase capacity
+                                    // based on STEP_CAPACITY
 }
 
 TEST(TestDMassiv, can_repack) {
