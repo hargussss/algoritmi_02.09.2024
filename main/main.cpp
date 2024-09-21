@@ -1,7 +1,8 @@
 // Copyright 2024 Marina Usova
 
-#define EASY_EXAMPLE
+// #define EASY_EXAMPLE
 // #define TPAIR_EXAMPLE
+#define TDMASSIVE_EXAMPLE
 
 #ifdef EASY_EXAMPLE
 
@@ -19,7 +20,7 @@ int main() {
       result = division(a, b);
       std::cout << a << " / " << b << " = "
           << std::setprecision(2) << result << std::endl;
-  } catch (std::exception err) {
+  } catch (std::exception& err) {
       std::cerr << err.what() << std::endl;
   }
 
@@ -29,7 +30,7 @@ int main() {
       result = division(a, b);
       std::cout << a << " / " << b << " = "
           << std::setprecision(2) << result << std::endl;
-  } catch (std::exception err) {
+  } catch (std::exception& err) {
       std::cerr << err.what() << std::endl;
   }
 
@@ -66,6 +67,45 @@ int main() {
 
     if (p1 < p2) {
         std::cout << "Pair 1 is less than Pair 2" << std::endl;
+    }
+
+    return 0;
+}
+
+#elif defined(TDMASSIVE_EXAMPLE)
+
+#include <iostream>
+#include "../lib_DMassive/DMassive.h"
+
+int main() {
+    // Пример использования класса DMassiv
+    DMassiv<int> massive;
+
+    // Добавление элементов
+    massive.push_back(10);
+    massive.push_back(20);
+    massive.push_back(30);
+
+    // Печать элементов
+    std::cout << "Initial massive: ";
+    massive.print();
+
+    // Замена элемента
+    massive.replace(1, 99);
+    std::cout << "After replace: ";
+    massive.print();
+
+    // Удаление элемента
+    massive.pop_back();
+    std::cout << "After pop_back: ";
+    massive.print();
+
+    // Поиск элемента
+    size_t index = massive.find_first(99);
+    if (index != static_cast<size_t>(-1)) {
+        std::cout << "Element 99 found at index " << index << std::endl;
+    } else {
+        std::cout << "Element 99 not found" << std::endl;
     }
 
     return 0;

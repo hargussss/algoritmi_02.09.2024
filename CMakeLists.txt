@@ -12,6 +12,7 @@ include(cmake/function.cmake)         # подхватываем функции,
 
 add_subdirectory(lib_easy_example)    # подключаем дополнительный CMakeLists.txt из подкаталога с именем lib_easy_example
 add_subdirectory(lib_pair)            # подключаем дополнительный CMakeLists.txt из подкаталога с именем lib_pair
+add_subdirectory(lib_DMassive)        # подключаем дополнительный CMakeLists.txt из подкаталога с именем lib_DMassive
 add_subdirectory(main)                # подключаем дополнительный CMakeLists.txt из подкаталога с именем main
 
 option(BTEST "build test?" ON)        # указываем подключаем ли google-тесты (ON или YES) или нет (OFF или NO)
