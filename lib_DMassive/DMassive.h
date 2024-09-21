@@ -24,7 +24,7 @@ namespace algorithms {
     T max(T val_1, T val_2) {
         return (val_1 > val_2) ? val_1 : val_2;
     }
-} //  namespace algorithms
+}  // namespace algorithms
 
 template <typename T>
 class DMassiv {
@@ -81,7 +81,7 @@ class DMassiv {
     size_t find_last(T value) const noexcept;
 
  private:
-    void check_index(size_t pos) const;  //  вспомогательная функция 
+    void check_index(size_t pos) const;  //  вспомогательная функция
                                          //  для проверки индекса
 };
 
