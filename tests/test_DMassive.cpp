@@ -30,7 +30,7 @@ TEST(TestDMassiv, can_pop_back) {
     // Arrange
     DMassiv<int> arr;
     arr.push_back(10);
-    
+
     // Act
     arr.pop_back();
 
@@ -50,7 +50,7 @@ TEST(TestDMassiv, can_push_front) {
     // Arrange
     DMassiv<int> arr;
     arr.push_back(10);
-    
+
     // Act
     arr.push_front(5);
 
@@ -65,7 +65,7 @@ TEST(TestDMassiv, can_find_first) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
-    
+
     // Act
     size_t index = arr.find_first(10);
 
@@ -79,7 +79,7 @@ TEST(TestDMassiv, can_find_last) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
-    
+
     // Act
     size_t index = arr.find_last(10);
 
@@ -91,7 +91,7 @@ TEST(TestDMassiv, can_replace) {
     // Arrange
     DMassiv<int> arr;
     arr.push_back(10);
-    
+
     // Act
     arr.replace(0, 20);
 
@@ -111,7 +111,7 @@ TEST(TestDMassiv, can_clear) {
     // Arrange
     DMassiv<int> arr;
     arr.push_back(10);
-    
+
     // Act
     arr.clear();
 
@@ -124,7 +124,7 @@ TEST(TestDMassiv, can_insert) {
     DMassiv<int> arr;
     arr.push_back(10);
     arr.push_back(30);
-    
+
     // Act
     arr.insert(20, 1);
 
@@ -138,7 +138,7 @@ TEST(TestDMassiv, can_remove_by_index) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(30);
-    
+
     // Act
     arr.remove_by_index(1);
 
@@ -162,7 +162,7 @@ TEST(TestDMassiv, can_erase) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(30);
-    
+
     // Act
     arr.erase(1, 1);
 
@@ -178,7 +178,7 @@ TEST(TestDMassiv, can_remove_all) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
-    
+
     // Act
     arr.remove_all(10);
 
@@ -193,7 +193,7 @@ TEST(TestDMassiv, can_remove_first) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
-    
+
     // Act
     arr.remove_first(10);
 
@@ -208,7 +208,7 @@ TEST(TestDMassiv, can_remove_last) {
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
-    
+
     // Act
     arr.remove_last(10);
 
@@ -278,7 +278,7 @@ TEST(TestDMassiv, can_resize_with_value) {
     // Arrange
     DMassiv<int> arr;
     arr.push_back(10);
-    
+
     // Act
     arr.resize(5, 42);
 
@@ -293,7 +293,7 @@ TEST(TestDMassiv, can_insert_multiple_elements) {
     DMassiv<int> arr;
     arr.push_back(10);
     arr.push_back(30);
-    
+
     // Act
     int to_insert[] = {20, 21, 22};
     arr.insert(to_insert, 3, 1);
@@ -310,7 +310,7 @@ TEST(TestDMassiv, can_find_first_not_found) {
     DMassiv<int> arr;
     arr.push_back(10);
     arr.push_back(20);
-    
+
     // Act
     size_t index = arr.find_first(30);
 
@@ -322,7 +322,7 @@ TEST(TestDMassiv, can_check_if_full) {
     // Arrange
     DMassiv<int> arr;
     arr.push_back(10);
-    
+
     // Act
     bool is_full = arr.full();
 
@@ -335,11 +335,11 @@ TEST(TestDMassiv, can_swap) {
     DMassiv<int> arr1;
     arr1.push_back(10);
     arr1.push_back(20);
-    
+
     DMassiv<int> arr2;
     arr2.push_back(30);
     arr2.push_back(40);
-    
+
     // Act
     arr1.swap(arr2);
 

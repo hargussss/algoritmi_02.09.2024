@@ -5,6 +5,8 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <utility>
+#include <algorithm>
 
 #define STEP_CAPACITY 15
 
@@ -22,7 +24,7 @@ namespace algorithms {
     T max(T val_1, T val_2) {
         return (val_1 > val_2) ? val_1 : val_2;
     }
-}
+} // namespace algorithms
 
 template <typename T>
 class DMassiv {
