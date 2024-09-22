@@ -106,7 +106,8 @@ int main() {
     std::cout << std::endl;
 
     arr.push_front(5);
-    std::cout << "Size after adding an element at the front: " << arr.size() << std::endl;
+    std::cout << "Size after adding an element at the front: "
+          << arr.size() << std::endl;
 
     // вывод текущего состояния массива после добавления в начало
     std::cout << "Current elements: ";
