@@ -2,7 +2,7 @@
 
 // #define EASY_EXAMPLE
 // #define TPAIR_EXAMPLE
-#define TDMASSIVE_EXAMPLE
+#define DMASSIVE_EXAMPLE
 
 #ifdef EASY_EXAMPLE
 
@@ -72,41 +72,48 @@ int main() {
     return 0;
 }
 
-#elif defined(TDMASSIVE_EXAMPLE)
+#elif defined(DMASSIVE_EXAMPLE)
 
 #include <iostream>
 #include "../lib_DMassive/DMassive.h"
 
 int main() {
-    // Пример использования класса DMassiv
-    DMassiv<int> massive;
+    DMassive<int> arr;
 
-    // Добавление элементов
-    massive.push_back(10);
-    massive.push_back(20);
-    massive.push_back(30);
+    // демонстрация основных операций
+    std::cout << "Initial size: " << arr.size() << std::endl;
 
-    // Печать элементов
-    std::cout << "Initial massive: ";
-    massive.print();
+    arr.push_back(10);
+    arr.push_back(20);
+    arr.push_back(30);
+    std::cout << "Size after adding elements: " << arr.size() << std::endl;
 
-    // Замена элемента
-    massive.replace(1, 99);
-    std::cout << "After replace: ";
-    massive.print();
-
-    // Удаление элемента
-    massive.pop_back();
-    std::cout << "After pop_back: ";
-    massive.print();
-
-    // Поиск элемента
-    size_t index = massive.find_first(99);
-    if (index != static_cast<size_t>(-1)) {
-        std::cout << "Element 99 found at index " << index << std::endl;
-    } else {
-        std::cout << "Element 99 not found" << std::endl;
+    // вывод текущего состояния массива
+    std::cout << "Current elements: ";
+    for (size_t i = 0; i < arr.size(); ++i) {
+        std::cout << arr.data()[i] << " ";
     }
+    std::cout << std::endl;
+
+    arr.pop_back();
+    std::cout << "Size after removing an element: " << arr.size() << std::endl;
+
+    // вывод текущего состояния массива после удаления
+    std::cout << "Current elements: ";
+    for (size_t i = 0; i < arr.size(); ++i) {
+        std::cout << arr.data()[i] << " ";
+    }
+    std::cout << std::endl;
+
+    arr.push_front(5);
+    std::cout << "Size after adding an element at the front: " << arr.size() << std::endl;
+
+    // вывод текущего состояния массива после добавления в начало
+    std::cout << "Current elements: ";
+    for (size_t i = 0; i < arr.size(); ++i) {
+        std::cout << arr.data()[i] << " ";
+    }
+    std::cout << std::endl;
 
     return 0;
 }
