@@ -8,12 +8,12 @@
 
 template <typename T>
 class TStack {
-private:
+ private:
     T* _data;          //  массив для хранения элементов стека
     size_t _size;      //  максимальный размер стека
     size_t _top;       //  индекс верхнего элемента стека
 
-public:
+ public:
     explicit TStack(size_t size) : _size(size), _top(0) {
         _data = new T[_size];
     }
@@ -57,4 +57,4 @@ public:
     }
 };
 
-#endif // LIB_STACK_STACK_H_
+#endif  // LIB_STACK_STACK_H_
