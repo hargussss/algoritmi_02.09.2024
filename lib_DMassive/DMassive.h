@@ -35,6 +35,7 @@ class DMassive {
     size_t _deleted;
 
 public:
+
     DMassive();
     DMassive(const DMassive& archive);
     DMassive(const T* arr, size_t n);
@@ -81,6 +82,7 @@ public:
     size_t find_last(T value) const noexcept;
 
 private:
+
     void check_index(size_t pos) const;  // вспомогательная функция
     // для проверки индекса
 };
