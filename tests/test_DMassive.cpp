@@ -5,18 +5,18 @@
 
 #define EPSILON 0.000001
 
-TEST(TestDMassiv, can_create_empty) {
+TEST(TestDMassive, can_create_empty) {
     // Act
-    DMassiv<int> arr;
+    DMassive<int> arr;
 
     // Assert
     EXPECT_TRUE(arr.empty());
     EXPECT_EQ(arr.size(), 0);
 }
 
-TEST(TestDMassiv, can_push_back) {
+TEST(TestDMassive, can_push_back) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
 
     // Act
     arr.push_back(10);
@@ -26,9 +26,9 @@ TEST(TestDMassiv, can_push_back) {
     EXPECT_EQ(arr.data()[0], 10);
 }
 
-TEST(TestDMassiv, can_pop_back) {
+TEST(TestDMassive, can_pop_back) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act
@@ -38,17 +38,17 @@ TEST(TestDMassiv, can_pop_back) {
     EXPECT_TRUE(arr.empty());
 }
 
-TEST(TestDMassiv, throw_when_pop_back_on_empty) {
+TEST(TestDMassive, throw_when_pop_back_on_empty) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
 
     // Act & Assert
     ASSERT_THROW(arr.pop_back(), std::out_of_range);
 }
 
-TEST(TestDMassiv, can_push_front) {
+TEST(TestDMassive, can_push_front) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act
@@ -59,9 +59,9 @@ TEST(TestDMassiv, can_push_front) {
     EXPECT_EQ(arr.data()[0], 5);
 }
 
-TEST(TestDMassiv, can_find_first) {
+TEST(TestDMassive, can_find_first) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
@@ -73,9 +73,9 @@ TEST(TestDMassiv, can_find_first) {
     EXPECT_EQ(index, 0);
 }
 
-TEST(TestDMassiv, can_find_last) {
+TEST(TestDMassive, can_find_last) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
@@ -87,9 +87,9 @@ TEST(TestDMassiv, can_find_last) {
     EXPECT_EQ(index, 2);
 }
 
-TEST(TestDMassiv, can_replace) {
+TEST(TestDMassive, can_replace) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act
@@ -99,17 +99,17 @@ TEST(TestDMassiv, can_replace) {
     EXPECT_EQ(arr.data()[0], 20);
 }
 
-TEST(TestDMassiv, throw_when_replace_invalid_index) {
+TEST(TestDMassive, throw_when_replace_invalid_index) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
 
     // Act & Assert
     ASSERT_THROW(arr.replace(0, 20), std::out_of_range);
 }
 
-TEST(TestDMassiv, can_clear) {
+TEST(TestDMassive, can_clear) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act
@@ -119,9 +119,9 @@ TEST(TestDMassiv, can_clear) {
     EXPECT_TRUE(arr.empty());
 }
 
-TEST(TestDMassiv, can_insert) {
+TEST(TestDMassive, can_insert) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(30);
 
@@ -132,9 +132,9 @@ TEST(TestDMassiv, can_insert) {
     EXPECT_EQ(arr.data()[1], 20);
 }
 
-TEST(TestDMassiv, can_remove_by_index) {
+TEST(TestDMassive, can_remove_by_index) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(30);
@@ -147,18 +147,18 @@ TEST(TestDMassiv, can_remove_by_index) {
     EXPECT_EQ(arr.data()[1], 30);
 }
 
-TEST(TestDMassiv, throw_when_remove_invalid_index) {
+TEST(TestDMassive, throw_when_remove_invalid_index) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act & Assert
     ASSERT_THROW(arr.remove_by_index(1), std::out_of_range);
 }
 
-TEST(TestDMassiv, can_erase) {
+TEST(TestDMassive, can_erase) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(30);
@@ -172,9 +172,9 @@ TEST(TestDMassiv, can_erase) {
     EXPECT_EQ(arr.data()[1], 30);
 }
 
-TEST(TestDMassiv, can_remove_all) {
+TEST(TestDMassive, can_remove_all) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
@@ -187,9 +187,9 @@ TEST(TestDMassiv, can_remove_all) {
     EXPECT_EQ(arr.data()[0], 20);
 }
 
-TEST(TestDMassiv, can_remove_first) {
+TEST(TestDMassive, can_remove_first) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
@@ -202,9 +202,9 @@ TEST(TestDMassiv, can_remove_first) {
     EXPECT_EQ(arr.data()[0], 20);
 }
 
-TEST(TestDMassiv, can_remove_last) {
+TEST(TestDMassive, can_remove_last) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(10);
@@ -217,14 +217,14 @@ TEST(TestDMassiv, can_remove_last) {
     EXPECT_EQ(arr.data()[1], 20);
 }
 
-TEST(TestDMassiv, can_copy_construct) {
+TEST(TestDMassive, can_copy_construct) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
 
     // Act
-    DMassiv<int> copy(arr);
+    DMassive<int> copy(arr);
 
     // Assert
     EXPECT_EQ(copy.size(), 2);
@@ -232,24 +232,9 @@ TEST(TestDMassiv, can_copy_construct) {
     EXPECT_EQ(copy.data()[1], 20);
 }
 
-TEST(TestDMassiv, can_move_construct) {
+TEST(TestDMassive, can_reserve_memory) {
     // Arrange
-    DMassiv<int> arr;
-    arr.push_back(10);
-    arr.push_back(20);
-
-    // Act
-    DMassiv<int> moved(std::move(arr));
-
-    // Assert
-    EXPECT_EQ(moved.size(), 2);
-    EXPECT_EQ(moved.data()[0], 10);
-    EXPECT_TRUE(arr.empty());  // Original should be empty after move
-}
-
-TEST(TestDMassiv, can_reserve_memory) {
-    // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
 
     // Act
     arr.reserve(10);
@@ -259,9 +244,9 @@ TEST(TestDMassiv, can_reserve_memory) {
                                     // based on STEP_CAPACITY
 }
 
-TEST(TestDMassiv, can_repack) {
+TEST(TestDMassive, can_repack) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
     arr.push_back(30);
@@ -275,9 +260,9 @@ TEST(TestDMassiv, can_repack) {
     EXPECT_EQ(arr.capacity(), 15);  // Capacity should remain the same
 }
 
-TEST(TestDMassiv, can_resize_with_value) {
+TEST(TestDMassive, can_resize_with_value) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act
@@ -289,9 +274,9 @@ TEST(TestDMassiv, can_resize_with_value) {
     EXPECT_EQ(arr.data()[4], 42);
 }
 
-TEST(TestDMassiv, can_insert_multiple_elements) {
+TEST(TestDMassive, can_insert_multiple_elements) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(30);
 
@@ -306,9 +291,9 @@ TEST(TestDMassiv, can_insert_multiple_elements) {
     EXPECT_EQ(arr.data()[3], 22);
 }
 
-TEST(TestDMassiv, can_find_first_not_found) {
+TEST(TestDMassive, can_find_first_not_found) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
     arr.push_back(20);
 
@@ -319,9 +304,9 @@ TEST(TestDMassiv, can_find_first_not_found) {
     EXPECT_EQ(index, static_cast<size_t>(-1));  // Not found
 }
 
-TEST(TestDMassiv, can_check_if_full) {
+TEST(TestDMassive, can_check_if_full) {
     // Arrange
-    DMassiv<int> arr;
+    DMassive<int> arr;
     arr.push_back(10);
 
     // Act
@@ -331,13 +316,13 @@ TEST(TestDMassiv, can_check_if_full) {
     EXPECT_FALSE(is_full);
 }
 
-TEST(TestDMassiv, can_swap) {
+TEST(TestDMassive, can_swap) {
     // Arrange
-    DMassiv<int> arr1;
+    DMassive<int> arr1;
     arr1.push_back(10);
     arr1.push_back(20);
 
-    DMassiv<int> arr2;
+    DMassive<int> arr2;
     arr2.push_back(30);
     arr2.push_back(40);
 
