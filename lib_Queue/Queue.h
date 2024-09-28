@@ -16,10 +16,10 @@ class Queue {
     size_t _count;
 
  public:
-    explicit Queue(size_t size) 
-    : _size(size), 
-      _front(0), 
-      _rear(size - 1), 
+    explicit Queue(size_t size)
+    : _size(size),
+      _front(0),
+      _rear(size - 1),
       _count(0) {
         _data = new T[_size];
     }
@@ -33,7 +33,7 @@ class Queue {
         if (_count == _size) {
             throw std::overflow_error("Queue overflow");
         }
-        _rear = (_rear + 1) % _size;  
+        _rear = (_rear + 1) % _size;
         // перемещаем индекс последнего элемента
         _data[_rear] = value;
         ++_count;
