@@ -81,3 +81,102 @@ TEST(TestTStack, throw_when_push_overflow) {
     // Act & Assert
     ASSERT_THROW(stack.push(6), std::overflow_error);
 }
+
+TEST(TestIsValidExpression, can_validate_simple_correct_expression) {
+    // Arrange
+    std::string expression = "((x+y*5)*[x/6-y])+{((8+19)+|14x+56|)*[18y-65]}";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_TRUE(actual_result);
+}
+
+TEST(TestIsValidExpression, can_validate_expression_with_pipes) {
+    // Arrange
+    std::string expression = "|a+b|*|3-x|";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_TRUE(actual_result);
+}
+
+TEST(TestIsValidExpression, throws_on_unbalanced_parentheses) {
+    // Arrange
+    std::string expression = "(()()";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_FALSE(actual_result);
+}
+
+TEST(TestIsValidExpression, throws_on_incorrect_order_of_brackets) {
+    // Arrange
+    std::string expression = "()([]{])";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_FALSE(actual_result);
+}
+
+TEST(TestIsValidExpression, can_validate_nested_brackets) {
+    // Arrange
+    std::string expression = "{[()]}";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_TRUE(actual_result);
+}
+
+TEST(TestIsValidExpression, throws_on_mismatched_brackets) {
+    // Arrange
+    std::string expression = "{[)]}";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_FALSE(actual_result);
+}
+
+TEST(TestIsValidExpression, can_validate_empty_expression) {
+    // Arrange
+    std::string expression = "";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_TRUE(actual_result);
+}
+
+TEST(TestIsValidExpression, throws_on_incomplete_pipe_pairs) {
+    // Arrange
+    std::string expression = "|a+b|*|3-x";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_FALSE(actual_result);
+}
+
+TEST(TestIsValidExpression, can_validate_expression_with_nested_pipes) {
+    // Arrange
+    std::string expression = "|(a+b)|*[3-x]";
+
+    // Act
+    bool actual_result = isValidExpression(expression);
+
+    // Assert
+    EXPECT_TRUE(actual_result);
+}

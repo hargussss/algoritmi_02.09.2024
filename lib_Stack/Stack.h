@@ -5,13 +5,15 @@
 
 #include <iostream>
 #include <stdexcept>
+#include <string>
+#include <stack>
 
 template <typename T>
 class TStack {
  private:
-    T* _data;          //  массив для хранения элементов стека
-    size_t _size;      //  максимальный размер стека
-    size_t _top;       //  индекс верхнего элемента стека
+    T* _data;
+    size_t _size;
+    size_t _top;
 
  public:
     explicit TStack(size_t size) : _size(size), _top(0) {
@@ -56,5 +58,33 @@ class TStack {
         return _top;
     }
 };
+
+//  функция для проверки корректности выражений
+bool isValidExpression(const std::string& expression) {
+    std::stack<char> s;
+    for (char ch : expression) {
+        if (ch == '(' || ch == '[' || ch == '{' || ch == '|') {
+            if (ch == '|' && !s.empty() && s.top() == '|') {
+                s.pop();
+            } else {
+                s.push(ch);
+            }
+        } else if (ch == ')' || ch == ']' || ch == '}' || ch == '|') {
+            if (s.empty()) {
+                return false;
+            }
+            char top = s.top();
+            if ((ch == ')' && top == '(') ||
+                (ch == ']' && top == '[') ||
+                (ch == '}' && top == '{') ||
+                (ch == '|' && top == '|')) {
+                s.pop();
+            } else {
+                return false;
+            }
+        }
+    }
+    return s.empty();
+}
 
 #endif  // LIB_STACK_STACK_H_
