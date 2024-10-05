@@ -1,7 +1,7 @@
 // Copyright 2024 Ivan Karpich
 
-#ifndef LIB_LIST_TLIST_H_
-#define LIB_LIST_TLIST_H_
+#ifndef LIB_LIST_LIST_H_
+#define LIB_LIST_LIST_H_
 
 #include <iostream>
 #include <stdexcept>
@@ -11,7 +11,7 @@ class TNode {
     T _value;
     TNode<T>* _pnext;
 
-public:
+ public:
     explicit TNode(T value) : _value(value), _pnext(nullptr) {}
     TNode(const TNode& other) = default;
     ~TNode() = default;
@@ -38,7 +38,7 @@ class TList {
     TNode<T>* _head;
     TNode<T>* _tail;
 
-public:
+ public:
     TList() : _head(nullptr), _tail(nullptr) {}
     ~TList();
 
@@ -282,4 +282,4 @@ TList<T>& TList<T>::operator=(const TList<T>& other) {
     return *this;
 }
 
-#endif  // LIB_LIST_TLIST_H_
+#endif  // LIB_LIST_LIST_H_
