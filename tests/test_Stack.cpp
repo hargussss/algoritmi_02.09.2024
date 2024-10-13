@@ -1,7 +1,7 @@
 // Copyright 2024 Ivan Karpich
 
-#include <gtest.h>
 #include "../lib_Stack/Stack.h"
+#include <gtest.h>
 #include <string>
 
 #define EPSILON 0.000001
