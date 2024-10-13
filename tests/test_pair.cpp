@@ -3,7 +3,7 @@
 #include "../lib_pair/pair.h"
 #include <utility>
 #include <string>
-#include <gtest.h>
+#include <../gtest/gtest.h>
 
 #define EPSILON 0.000001
 
