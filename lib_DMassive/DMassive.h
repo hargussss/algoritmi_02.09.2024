@@ -13,17 +13,19 @@
 enum State { empty, busy, deleted };
 
 namespace algorithms {
-    template<typename T>
-    inline void swap(T& val_1, T& val_2) noexcept {
-        T tmp = val_1;
-        val_1 = val_2;
-        val_2 = tmp;
-    }
 
-    template<typename T>
-    inline T max(const T& val_1, const T& val_2) {
-        return (val_1 > val_2) ? val_1 : val_2;
-    }
+template<typename T>
+inline void swap(T& val_1, T& val_2) noexcept {
+    T tmp = val_1;
+    val_1 = val_2;
+    val_2 = tmp;
+}
+
+template<typename T>
+inline T max(const T& val_1, const T& val_2) {
+    return (val_1 > val_2) ? val_1 : val_2;
+}
+
 }  // namespace algorithms
 
 template <typename T>

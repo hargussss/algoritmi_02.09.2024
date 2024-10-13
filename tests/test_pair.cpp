@@ -2,6 +2,8 @@
 
 #include <gtest.h>
 #include "../lib_pair/pair.h"
+#include <utility>
+#include <string>
 
 #define EPSILON 0.000001
 

@@ -2,6 +2,7 @@
 
 #include <gtest.h>
 #include "../lib_DMassive/DMassive.h"
+#include <algorithm>
 
 #define EPSILON 0.000001
 

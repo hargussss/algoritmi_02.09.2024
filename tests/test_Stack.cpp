@@ -2,6 +2,7 @@
 
 #include <gtest.h>
 #include "../lib_Stack/Stack.h"
+#include <string>
 
 #define EPSILON 0.000001
 
