@@ -1,9 +1,9 @@
 // Copyright 2024 Ivan Karpich
 
-#include "../lib_pair/pair.h"
 #include <utility>
 #include <string>
 #include <../gtest/gtest.h>
+#include "../lib_pair/pair.h"
 
 #define EPSILON 0.000001
 
